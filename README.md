@@ -1,1 +1,1 @@
-# agent-demo
+# Agent App Template Repo
