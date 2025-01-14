@@ -1,0 +1,46 @@
+[project]
+name = "api"
+version = "0.0.1"
+description = ""
+authors = [
+    {name = "Aurelio AI"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = "3.12.7"
+dependencies = [
+    "fastapi (>=0.115.6,<0.116.0)",
+    "pydantic (>=2.10.5,<3.0.0)",
+    "graphai-lib (>=0.0.1,<0.0.2)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "uvloop (>=0.21.0,<0.22.0)",
+    "redis (>=5.2.1,<6.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.9"
+mypy = "^1.12.1"
+ipykernel = "^6.29.0"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle
+    "F",  # pyflakes
+    "UP", # pyupgrade,
+    "I",  # isort
+    "B006", # mutable defaults
+]
+# Never enforce `E501` (line length violations).
+ignore = ["E501"]
+fixable = ["ALL"]
+exclude = ["*.ipynb"]
