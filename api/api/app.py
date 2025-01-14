@@ -1,12 +1,9 @@
-import asyncio
 from contextlib import asynccontextmanager
 
 from dotenv import find_dotenv, load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from redis.asyncio import Redis
-
-from .utils.logger import logger
 
 
 @asynccontextmanager
