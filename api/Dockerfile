@@ -27,7 +27,7 @@ RUN pip install --no-cache-dir poetry pip --upgrade
 
 WORKDIR /app
 # Copy only requirements and local module to cache them in docker layer
-COPY poetry.lock pyproject.toml ./
+COPY pyproject.toml ./
 COPY api ./api
 COPY main.py ./main.py
 COPY README.md README.md
@@ -41,4 +41,4 @@ RUN poetry config installer.max-workers 20 \
 FROM builder as runtime
 WORKDIR /app
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--loop", "uvloop"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

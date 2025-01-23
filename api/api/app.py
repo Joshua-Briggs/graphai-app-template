@@ -5,6 +5,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from redis.asyncio import Redis
 
+from .books2 import router as books_router
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -40,3 +42,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+app.include_router(books_router)
